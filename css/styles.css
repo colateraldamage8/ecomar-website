@@ -550,6 +550,13 @@ input, textarea, select {
   overflow: hidden;
   aspect-ratio: 4/5;
   box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, #0D1F3C, #1B3A6B);
+}
+.about-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .about-img-secondary {
@@ -562,6 +569,13 @@ input, textarea, select {
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 5px solid var(--white);
+  background: linear-gradient(135deg, #7a5010, #C9A96E);
+}
+.about-img-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Image placeholders — removed once real images are added */
@@ -792,6 +806,8 @@ input, textarea, select {
   overflow: hidden;
 }
 .proj-img img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -950,6 +966,8 @@ input, textarea, select {
 .gal-item:hover .gal-overlay { opacity: 1; }
 .gal-item:hover .gal-ph { filter: brightness(.7); }
 .gal-item img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;

@@ -178,15 +178,15 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   function openLightbox(item) {
     const img = item.querySelector('img');
-    if (img) {
+    const loaded = img && img.naturalWidth > 0 && img.style.display !== 'none';
+    if (loaded) {
       lightboxContent.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
     } else {
-      // Placeholder — no real image yet
       lightboxContent.innerHTML = `
         <div style="text-align:center;color:#fff;padding:40px 20px;">
           <i class="fas fa-camera" style="font-size:3rem;opacity:.4;margin-bottom:16px;display:block;"></i>
           <p style="font-size:1.1rem;opacity:.7;">Imagen próximamente</p>
-          <p style="font-size:.85rem;opacity:.45;margin-top:8px;">Reemplazar con imagen real del proyecto.</p>
+          <p style="font-size:.85rem;opacity:.45;margin-top:8px;">Añadir imagen a la carpeta images/.</p>
         </div>`;
     }
     lightbox.classList.add('open');
