@@ -293,7 +293,36 @@ function toggleScrollTopBtn() {
 
 
 /* ============================================================
-   9. SMOOTH SCROLL FOR ANCHOR LINKS
+   9. ABOUT IMAGE PARALLAX
+   Subtle vertical parallax on the main about photo — desktop only.
+   ============================================================ */
+(function initAboutParallax() {
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+  const img = qs('.about-img-main img');
+  if (!img) return;
+  const container = img.closest('.about-img-main');
+
+  window.addEventListener('scroll', () => {
+    const rect = container.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+    img.style.transform = `translateY(${center * 0.07}px)`;
+  }, { passive: true });
+
+  /* Pause parallax on hover, restore on leave */
+  container.addEventListener('mouseenter', () => {
+    img.style.transition = 'transform .9s cubic-bezier(.4,0,.2,1)';
+    img.style.transform = 'scale(1.05)';
+  });
+  container.addEventListener('mouseleave', () => {
+    img.style.transition = 'transform .9s cubic-bezier(.4,0,.2,1)';
+    /* let next scroll event re-apply parallax */
+  });
+})();
+
+
+/* ============================================================
+   10. SMOOTH SCROLL FOR ANCHOR LINKS
    Accounts for fixed navbar height offset.
    ============================================================ */
 (function initSmoothScroll() {
