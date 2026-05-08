@@ -550,13 +550,10 @@ input, textarea, select {
   overflow: hidden;
   aspect-ratio: 4/5;
   box-shadow: var(--shadow-xl);
-  background: linear-gradient(135deg, #0D1F3C, #1B3A6B);
-}
-.about-img-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  /* Drop images/about-main.jpg to replace the gradient */
+  background-image: url('../images/about-main.jpg'), linear-gradient(135deg, #0D1F3C, #1B3A6B);
+  background-size: cover, cover;
+  background-position: center;
 }
 
 .about-img-secondary {
@@ -569,13 +566,10 @@ input, textarea, select {
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 5px solid var(--white);
-  background: linear-gradient(135deg, #7a5010, #C9A96E);
-}
-.about-img-secondary img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  /* Drop images/about-team.jpg to replace the gradient */
+  background-image: url('../images/about-team.jpg'), linear-gradient(135deg, #7a5010, #C9A96E);
+  background-size: cover, cover;
+  background-position: center;
 }
 
 /* Image placeholders — removed once real images are added */
